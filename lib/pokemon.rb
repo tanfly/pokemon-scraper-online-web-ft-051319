@@ -14,7 +14,8 @@ attr_accessor :id, :name, :type, :db, :hp
    def self.find(id, db)
      sql = <<-SQL 
      SELECT * 
-     FROM pokemon
+     FROM pokemon 
+     WHERE id = ?
     db.execute("SELECT * FROM pokemon WHERE id=?", id).map do |row|
       Pokemon.new(id: row[0], name: row[1], type: row[2], hp: row[3], db: db)
     end.first 
