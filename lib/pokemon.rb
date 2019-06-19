@@ -30,7 +30,7 @@ attr_accessor :id, :name, :type, :db, :hp
      VALUES (?,?)
      SQL
      
-    db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
+    db.execute(sql, name, type)
     @id = db.execute("SELECT last_insert_rowid() FROM pokemon")[0][0]
   end
 
