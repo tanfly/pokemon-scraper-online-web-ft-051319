@@ -26,4 +26,6 @@ attr_accessor :id, :name, :type, :db, :hp
     db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", new_hp, self.id)
   end
 
+
+
  end	
