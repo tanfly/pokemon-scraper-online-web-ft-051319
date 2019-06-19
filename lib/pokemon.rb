@@ -25,6 +25,9 @@ attr_accessor :id, :name, :type, :db, :hp
 
 
    def self.save(name, type, db)
+     sql = <<-SQL 
+     INSERT INTO pokemon (name, type)
+     
     db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
     @id = db.execute("SELECT last_insert_rowid() FROM pokemon")[0][0]
   end
